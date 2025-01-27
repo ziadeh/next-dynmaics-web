@@ -2,11 +2,10 @@ import { Poppins } from "next/font/google";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
-import { cn } from "@/lib/utils";
 import { SiteFooter, SiteHeader } from "@/components/site";
 
 import "@/styles/globals.css";
-import WebsiteGoogleAnalytics from "@/components/shared/WebsiteGoogleAnalytics";
+import CookieBanner from "@/components/shared/CookieBanner";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
@@ -32,7 +31,7 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable}`}>
       <body className="bg-nd-secondary-950 flex min-h-screen flex-col">
         <TRPCReactProvider>
-          <WebsiteGoogleAnalytics />
+          <CookieBanner />
           <SiteHeader />
           <div className="flex-1">
             <div className="min-h-1/2">{children}</div>

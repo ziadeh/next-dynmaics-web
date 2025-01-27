@@ -11,6 +11,7 @@ import Manufacturing from "../_components/Manufacturing";
 import FinancialServices from "../_components/FinancialServices";
 import { Metadata, ResolvingMetadata } from "next";
 import ContactUs from "../_components/ContactUs";
+import CookiesPolicy from "../_components/CookiesPolicy";
 
 interface PageProps {
   params: Promise<{
@@ -97,6 +98,8 @@ export default async function Page({ params }: PageProps) {
       return <FinancialServices />;
     case "contact-us":
       return <ContactUs />;
+    case "cookies-policy":
+      return <CookiesPolicy />;
     default:
       return <div>{urlPath.slug === "services" && <Service />}</div>;
   }
