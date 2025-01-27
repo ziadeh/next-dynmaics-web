@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function PartnerWith() {
   return (
-    <div className="relative -mt-32 py-32">
+    <div className="relative -mt-32 overflow-hidden py-32">
       <div className="container relative z-20 px-10 py-24">
         <div className="border-nd-primary-600 absolute right-10 top-0 z-20 h-[1px] w-full max-w-44 border-b border-dashed opacity-50 lg:max-w-96" />
         <div className="border-nd-primary-600 absolute right-0 top-4 z-20 h-[1px] w-full max-w-44 border-b border-dashed opacity-80 lg:max-w-72" />
@@ -35,7 +35,7 @@ function PartnerWith() {
           height={1080}
           src="/images/bg-black.jpg"
           alt=""
-          className="object-cover object-center"
+          className="h-full w-full object-cover object-center"
         />
       </div>
     </div>
