@@ -3,8 +3,23 @@
  * for Docker builds.
  */
 import "./src/env.js";
-
 /** @type {import("next").NextConfig} */
-const config = {};
+
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "nd-space.nyc3.digitaloceanspaces.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://nd-space.nyc3.digitaloceanspaces.com"
+      : undefined,
+};
 
 export default config;
