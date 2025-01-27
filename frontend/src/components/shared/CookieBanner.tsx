@@ -62,7 +62,7 @@ export default function CookieBanner({
       {variant === "default" ? (
         <div
           className={cn(
-            "fixed bottom-0 left-0 right-0 z-[200] w-full duration-700 sm:bottom-4 sm:left-4 sm:max-w-md",
+            "fixed bottom-0 right-0 z-[200] w-full duration-700 sm:bottom-4 sm:right-4 sm:max-w-md",
             !isOpen
               ? "translate-y-8 opacity-0 transition-[opacity,transform]"
               : "translate-y-0 opacity-100 transition-[opacity,transform]",
@@ -72,14 +72,13 @@ export default function CookieBanner({
           <div className="m-3 rounded-md border border-border bg-background/80 shadow-lg backdrop-blur-lg dark:bg-card">
             <div className="grid gap-2">
               <div className="flex h-14 items-center justify-between border-b border-border p-4">
-                <h1 className="text-lg font-medium">We use cookies</h1>
+                <h1 className="text-lg font-medium">We Value Your Privacy</h1>
                 <CookieIcon className="h-[1.2rem] w-[1.2rem]" />
               </div>
               <div className="p-4">
                 <p className="text-start text-sm font-normal">
-                  We use cookies to ensure you get the best experience on our
-                  website. For more information on how we use cookies, please
-                  see our cookie policy.
+                  At Next Dynamics, we use cookies to enhance your experience
+                  and analyze site usage.
                   <br />
                   <br />
                   <span className="text-xs">
@@ -112,7 +111,7 @@ export default function CookieBanner({
         variant === "small" && (
           <div
             className={cn(
-              "fixed bottom-0 left-0 right-0 z-[200] w-full duration-700 sm:bottom-4 sm:left-4 sm:max-w-md",
+              "fixed bottom-0 right-0 z-[200] w-full duration-700 sm:bottom-4 sm:right-4 sm:max-w-md",
               !isOpen
                 ? "translate-y-8 opacity-0 transition-[opacity,transform]"
                 : "translate-y-0 opacity-100 transition-[opacity,transform]",
