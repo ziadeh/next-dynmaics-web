@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 function PartnerWithUsInner() {
   return (
-    <section className="relative z-20 -mt-20 overflow-hidden bg-[url(/images/bg-black.jpg)] pb-12 pt-20 lg:pt-20">
+    <section className="relative z-20 -mt-20 overflow-hidden pb-12 pt-20 lg:pt-20">
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <div className="relative top-16 z-30">
           <div className="pointer-events-none absolute inset-0 -z-20 -my-56 overflow-hidden opacity-70">
