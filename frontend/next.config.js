@@ -16,10 +16,7 @@ const config = {
       },
     ],
   },
-  assetPrefix:
-    process.env.NODE_ENV === "production"
-      ? "https://nd-space.nyc3.digitaloceanspaces.com"
-      : undefined,
+  assetPrefix: "https://nd-space.nyc3.digitaloceanspaces.com",
 };
 
 export default config;
