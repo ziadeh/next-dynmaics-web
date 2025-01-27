@@ -20,8 +20,8 @@ function SiteBanner({
 }: SiteBannerProps) {
   return (
     <div>
-      <div className="relative overflow-hidden border-b border-nd-primary-600/20">
-        <div className="max-w-s absolute inset-0 top-12 m-auto h-[13rem] bg-gradient-to-r from-nd-primary-600 from-25% via-nd-primary-600/50 opacity-50 blur-[160px]"></div>
+      <div className="border-nd-primary-600/20 relative overflow-hidden border-b">
+        <div className="max-w-s from-nd-primary-600 via-nd-primary-600/50 absolute inset-0 top-12 m-auto h-[13rem] bg-gradient-to-r from-25% opacity-50 blur-[160px]"></div>
 
         <div className="container relative z-10 flex flex-wrap">
           <div className="w-full lg:w-1/2">
@@ -42,7 +42,7 @@ function SiteBanner({
                 </h2>
                 <p className="mt-2 text-white">{content}</p>
               </div>
-              <AnimatedLines className="absolute top-0 opacity-50" />
+              <AnimatedLines className="absolute top-0 opacity-10 lg:opacity-50" />
             </div>
           </div>
           <div className="lg:w-1/2">

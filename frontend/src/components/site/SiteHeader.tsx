@@ -8,25 +8,6 @@ import SiteMenuMobile from "../shared/SiteMenuMobile";
 import { ServicesMenu } from "@/util/constants";
 import Link from "next/link";
 
-const industry = [
-  {
-    title: "Life Sciences",
-    href: "/",
-  },
-  {
-    title: "Consumer Packaged Goods (CPG)",
-    href: "/",
-  },
-  {
-    title: "Manufacturing",
-    href: "/",
-  },
-  {
-    title: "Financial Services",
-    href: "/",
-  },
-];
-
 function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -50,7 +31,7 @@ function SiteHeader() {
         className={cn(
           "fixed z-50 h-20 w-full border-b border-transparent transition-all",
           isScrolled &&
-            "h-14 overflow-visible border-nd-secondary-900 backdrop-blur-md",
+            "border-nd-secondary-900 h-14 overflow-visible backdrop-blur-md",
         )}
       >
         <div className="container flex h-full items-center justify-between px-10">

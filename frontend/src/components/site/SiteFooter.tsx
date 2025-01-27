@@ -1,5 +1,7 @@
 import React from "react";
 import { Icons } from "../Icons";
+import Link from "next/link";
+import { IndustryMenu, ServicesMenu } from "@/util/constants";
 
 function SiteFooter() {
   return (
@@ -13,24 +15,36 @@ function SiteFooter() {
           <div className="col-span-2">
             <h3 className="font-semibold">Services</h3>
             <ul className="mt-2 flex flex-col gap-1.5 text-xs">
-              <li>Build as a Service</li>
-              <li>Product Strategy and Design</li>
-              <li>Software Design and Engineering</li>
-              <li>Data and Platform Engineering</li>
+              {ServicesMenu?.map((item, index) => (
+                <li key={index}>
+                  <Link className="hover:underline" href={item.link}>
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="col-span-2">
-            <h3 className="font-semibold">Services</h3>
+            <h3 className="font-semibold">Industries</h3>
             <ul className="mt-2 flex flex-col gap-1.5 text-xs">
-              <li>Driving Digital Transformation</li>
-              <li>Empowering Financial Services</li>
-              <li>Custom-Built Solutions</li>
-              <li>Driving Efficiency and Innovation</li>
+              {IndustryMenu?.map((item, index) => (
+                <li key={index}>
+                  <Link className="hover:underline" href={item.href}>
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="col-span-2">
             <h3 className="font-semibold">Contact</h3>
-            <Icons.linkedin width={32} height={32} className="mt-2" />
+            <a
+              href="https://www.linkedin.com/company/next-dynamics-inc."
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icons.linkedin width={32} height={32} className="mt-2" />
+            </a>
           </div>
         </div>
       </div>

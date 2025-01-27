@@ -97,7 +97,7 @@ function ProductStrategy() {
     whatWeOffer.forEach((item, index) => {
       currentRow.push(
         <div className="w-full sm:w-1/2 lg:w-1/3" key={index}>
-          <div className="xl:py-15 xl:px-13 group relative overflow-hidden px-4 py-8 text-center transition-all hover:bg-nd-secondary-800/10 sm:py-10 lg:px-8">
+          <div className="xl:py-15 xl:px-13 hover:bg-nd-secondary-800/10 group relative overflow-hidden px-4 py-8 text-center transition-all sm:py-10 lg:px-8">
             <span className="icon-border relative mx-auto mb-8 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
               {item.image ? (
                 <Image
@@ -111,7 +111,7 @@ function ProductStrategy() {
             <h4 className="mb-4 text-lg font-semibold text-white">
               {item.title}
             </h4>
-            <p className="font-light text-nd-secondary-100">{item.content}</p>
+            <p className="text-nd-secondary-100 font-light">{item.content}</p>
           </div>
         </div>,
       );
@@ -172,7 +172,7 @@ function ProductStrategy() {
                   const isLastRow = index === productStrategy.length - 1;
                   return (
                     <div
-                      className="flex items-start border-b border-nd-secondary-900 py-5 last:border-b-0 last:pb-0"
+                      className="border-nd-secondary-900 flex items-start border-b py-5 last:border-b-0 last:pb-0"
                       key={index}
                     >
                       <div className="mr-5 w-8">
@@ -223,18 +223,18 @@ function ProductStrategy() {
             <h2 className="mb-4.5 xl:text-heading-2 text-2xl font-semibold text-white sm:text-4xl">
               Build the Right Product, the Right Way
             </h2>
-            <p className="mx-auto mb-9 mt-5 max-w-[714px] text-sm text-nd-primary-100">
+            <p className="text-nd-primary-100 mx-auto mb-9 mt-5 max-w-[714px] text-sm">
               With Next Dynamics, you gain more than a service—you gain a
               partner dedicated to transforming your ideas into a strategy for
               success. Whether you’re launching a new product or optimizing an
               existing one, our Product Strategy and Design service sets you on
               the path to measurable impact.
             </p>
-            <p className="mx-auto mt-4 max-w-[714px] text-xs text-nd-primary-100">
+            <p className="text-nd-primary-100 mx-auto mt-4 max-w-[714px] text-xs">
               Contact us today to explore how we can help you craft a winning
               product strategy and design.
             </p>
-            <Button className="mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-nd-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-nd-primary-700 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
+            <Button className="border-nd-primary-600 hover:bg-nd-primary-600 active:bg-nd-primary-700 mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
               Let’s Design Your Success
             </Button>
           </div>

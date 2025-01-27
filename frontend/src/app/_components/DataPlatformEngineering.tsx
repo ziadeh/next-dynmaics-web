@@ -102,7 +102,7 @@ const renderItems = () => {
   dataPlatformEngineeringFeatures.forEach((item, index) => {
     currentRow.push(
       <div className="w-full sm:w-1/2 lg:w-1/3" key={index}>
-        <div className="xl:py-15 xl:px-13 group relative overflow-hidden px-4 py-8 text-center transition-all hover:bg-nd-secondary-800/10 sm:py-10 lg:px-8">
+        <div className="xl:py-15 xl:px-13 hover:bg-nd-secondary-800/10 group relative overflow-hidden px-4 py-8 text-center transition-all sm:py-10 lg:px-8">
           <span className="icon-border relative mx-auto mb-8 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
             {item.image ? (
               <Image
@@ -117,7 +117,7 @@ const renderItems = () => {
           <h4 className="mb-4 text-lg font-semibold text-white">
             {item.title}
           </h4>
-          <p className="font-light text-nd-secondary-100">{item.content}</p>
+          <p className="text-nd-secondary-100 font-light">{item.content}</p>
         </div>
       </div>,
     );
@@ -182,7 +182,7 @@ function DataPlatformEngineering() {
                 {whyChoose.map((item, index) => {
                   return (
                     <div
-                      className="flex items-start border-b border-nd-secondary-900 py-5 last:border-b-0 last:pb-0"
+                      className="border-nd-secondary-900 flex items-start border-b py-5 last:border-b-0 last:pb-0"
                       key={index}
                     >
                       <div className="mr-5 w-8">
@@ -215,7 +215,7 @@ function DataPlatformEngineering() {
             <h2 className="mb-4.5 xl:text-heading-2 text-2xl font-semibold text-white sm:text-4xl">
               Empower Your Business with Data and Technology
             </h2>
-            <p className="mx-auto mb-9 mt-5 max-w-[714px] text-sm text-nd-secondary-200">
+            <p className="text-nd-secondary-200 mx-auto mb-9 mt-5 max-w-[714px] text-sm">
               With Next Dynamics, you gain a partner dedicated to transforming
               your data and platforms into strategic enablers of success.
               Whether you’re building from the ground up or optimizing existing

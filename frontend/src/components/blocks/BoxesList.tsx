@@ -29,7 +29,7 @@ function BoxesList({ listItems, invertIcons = true }: BoxesListProps) {
     listItems.forEach((item, index) => {
       currentRow.push(
         <div className="w-full sm:w-1/2 lg:w-1/3" key={index}>
-          <div className="xl:py-15 xl:px-13 group relative overflow-hidden px-4 py-8 text-center transition-all hover:bg-nd-secondary-800/10 sm:py-10 lg:px-8">
+          <div className="xl:py-15 xl:px-13 hover:bg-nd-secondary-800/10 group relative overflow-hidden px-4 py-8 text-center transition-all sm:py-10 lg:px-8">
             <span className="icon-border relative mx-auto mb-8 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
               {item.image ? (
                 <Image
@@ -44,7 +44,7 @@ function BoxesList({ listItems, invertIcons = true }: BoxesListProps) {
             <h4 className="mb-4 text-lg font-semibold text-white">
               {item.title}
             </h4>
-            <p className="font-light text-nd-secondary-100">{item.content}</p>
+            <p className="text-nd-secondary-100 font-light">{item.content}</p>
           </div>
         </div>,
       );

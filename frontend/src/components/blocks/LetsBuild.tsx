@@ -33,15 +33,15 @@ const LetsBuild = ({
           <h2 className="mb-4.5 xl:text-heading-2 text-2xl font-semibold text-white sm:text-4xl">
             {title}
           </h2>
-          <p className="mx-auto mb-9 mt-5 max-w-[714px] text-sm text-nd-primary-100">
+          <p className="text-nd-primary-100 mx-auto mb-9 mt-5 max-w-[714px] text-sm">
             {content}
           </p>
-          <p className="mx-auto mt-4 max-w-[714px] text-xs text-nd-primary-100">
+          <p className="text-nd-primary-100 mx-auto mt-4 max-w-[714px] text-xs">
             {subContent}
           </p>
           <Button
             asChild
-            className="mx-auto mt-8 inline-block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-nd-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-nd-primary-700 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none"
+            className="border-nd-primary-600 hover:bg-nd-primary-600 active:bg-nd-primary-700 mx-auto mt-8 inline-block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none"
           >
             <Link href="/contact-us">{buttonText}</Link>
           </Button>

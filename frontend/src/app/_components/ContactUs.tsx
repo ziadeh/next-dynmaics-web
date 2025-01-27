@@ -59,7 +59,7 @@ function ContactUs() {
                       type="text"
                       name="name"
                       placeholder="Enter your Name"
-                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-100 outline-none focus:border-nd-primary-900"
+                      className="text-nd-primary-100 focus:border-nd-primary-900 w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 outline-none"
                     />
                   </div>
                 </div>
@@ -76,7 +76,7 @@ function ContactUs() {
                       type="email"
                       name="email"
                       placeholder="Enter your Email"
-                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-100 outline-none focus:border-nd-primary-900"
+                      className="text-nd-primary-100 focus:border-nd-primary-900 w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 outline-none"
                     />
                   </div>
                 </div>
@@ -93,13 +93,13 @@ function ContactUs() {
                       name="message"
                       placeholder="Type your message"
                       rows={6}
-                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-100 outline-none focus:border-nd-primary-900"
+                      className="text-nd-primary-100 focus:border-nd-primary-900 w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 outline-none"
                     ></textarea>
                   </div>
                 </div>
                 <div className="w-full px-4 xl:px-5">
                   <div className="text-center">
-                    <Button className="mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-nd-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-nd-primary-700 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
+                    <Button className="border-nd-primary-600 hover:bg-nd-primary-600 active:bg-nd-primary-700 mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
                       Send Message
                     </Button>
                   </div>

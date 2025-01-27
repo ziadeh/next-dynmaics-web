@@ -24,3 +24,22 @@ export const ServicesMenu = [
     link: "/data-and-platform-engineering",
   },
 ];
+
+export const IndustryMenu = [
+  {
+    title: "Financial Services",
+    href: "/financial-services",
+  },
+  {
+    title: "Life Sciences",
+    href: "/life-sciences",
+  },
+  {
+    title: "Consumer Packaged Goods (CPG)",
+    href: "/consumer-packaged-goods",
+  },
+  {
+    title: "Manufacturing",
+    href: "/manufacturing",
+  },
+];

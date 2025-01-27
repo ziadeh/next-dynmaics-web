@@ -44,7 +44,7 @@ function ImageRightList({ title, content, list, image }: ImageRightListProps) {
               {list.map((item, index) => {
                 return (
                   <div
-                    className="flex items-start border-b border-nd-secondary-900 py-5 last:border-b-0 last:pb-0"
+                    className="border-nd-secondary-900 flex items-start border-b py-5 last:border-b-0 last:pb-0"
                     key={index}
                   >
                     <div className="mr-5 w-8">

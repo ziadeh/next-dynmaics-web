@@ -25,12 +25,15 @@ function WhatWeOffer({ title, list }: WhatWeOfferProps) {
               <div className={cn("flex flex-wrap justify-center gap-8")}>
                 {list.map((item, index) => (
                   <div
-                    className={cn("w-1/5", list.length > 4 && "w-1/4")}
+                    className={cn(
+                      "lg:w-1/3 xl:w-1/5",
+                      list.length > 4 && "xl:w-1/4",
+                    )}
                     key={index}
                   >
-                    <div className="min-h-full rounded-lg border border-nd-secondary-900 bg-gradient-to-t from-nd-secondary-900 to-nd-secondary-950 p-10">
-                      <div className="mb-6 inline-flex rounded-full bg-nd-primary-600/10 p-2.5">
-                        <div className="inline-flex h-[4.25rem] w-[4.25rem] items-center justify-center rounded-full bg-nd-primary-800 p-3">
+                    <div className="border-nd-secondary-900 from-nd-secondary-900 to-nd-secondary-950 min-h-full rounded-lg border bg-gradient-to-t p-10">
+                      <div className="bg-nd-primary-600/10 mb-6 inline-flex rounded-full p-2.5">
+                        <div className="bg-nd-primary-800 inline-flex h-[4.25rem] w-[4.25rem] items-center justify-center rounded-full p-3">
                           {item.image ? (
                             <Image
                               width={64}
@@ -42,7 +45,7 @@ function WhatWeOffer({ title, list }: WhatWeOfferProps) {
                           ) : null}
                         </div>
                       </div>
-                      <h3 className="font-heading mb-2 min-h-12 text-xl font-semibold text-nd-secondary-200">
+                      <h3 className="font-heading text-nd-secondary-200 mb-2 min-h-12 text-xl font-semibold">
                         {item.title}
                       </h3>
                       <p className="text-sm leading-relaxed">{item.content}</p>
