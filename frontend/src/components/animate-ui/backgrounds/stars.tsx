@@ -9,6 +9,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
+import { useIntersectionObserver } from "@uidotdev/usehooks";
 
 import { cn } from "@/lib/utils";
 
@@ -91,6 +92,11 @@ function StarsBackground({
 }: StarsBackgroundProps) {
   const offsetX = useMotionValue(1);
   const offsetY = useMotionValue(1);
+  const [ref, entry] = useIntersectionObserver({
+    threshold: 0.1,
+    root: null,
+    rootMargin: "-100px",
+  });
 
   const springX = useSpring(offsetX, transition);
   const springY = useSpring(offsetY, transition);
@@ -116,38 +122,41 @@ function StarsBackground({
       )}
       onMouseMove={handleMouseMove}
       {...props}
+      ref={ref}
     >
-      <motion.div
-        style={{ x: springX, y: springY }}
-        className={cn({ "pointer-events-none": !pointerEvents })}
-      >
-        <StarLayer
-          count={1000}
-          size={1}
-          transition={{ repeat: Infinity, duration: speed, ease: "linear" }}
-          starColor={starColor}
-        />
-        <StarLayer
-          count={400}
-          size={2}
-          transition={{
-            repeat: Infinity,
-            duration: speed * 2,
-            ease: "linear",
-          }}
-          starColor={starColor}
-        />
-        <StarLayer
-          count={200}
-          size={3}
-          transition={{
-            repeat: Infinity,
-            duration: speed * 3,
-            ease: "linear",
-          }}
-          starColor={starColor}
-        />
-      </motion.div>
+      {entry?.isIntersecting && (
+        <motion.div
+          style={{ x: springX, y: springY }}
+          className={cn({ "pointer-events-none": !pointerEvents })}
+        >
+          <StarLayer
+            count={1000}
+            size={1}
+            transition={{ repeat: Infinity, duration: speed, ease: "linear" }}
+            starColor={starColor}
+          />
+          <StarLayer
+            count={400}
+            size={2}
+            transition={{
+              repeat: Infinity,
+              duration: speed * 2,
+              ease: "linear",
+            }}
+            starColor={starColor}
+          />
+          <StarLayer
+            count={200}
+            size={3}
+            transition={{
+              repeat: Infinity,
+              duration: speed * 3,
+              ease: "linear",
+            }}
+            starColor={starColor}
+          />
+        </motion.div>
+      )}
       {children}
     </div>
   );

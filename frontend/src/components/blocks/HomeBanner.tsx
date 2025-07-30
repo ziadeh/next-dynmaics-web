@@ -3,7 +3,7 @@ import { WritingText } from "../animate-ui/text/writing";
 
 function HomeBanner() {
   return (
-    <div className="relative flex min-h-[90vh] flex-col">
+    <div className="relative -mb-72 flex min-h-[90vh] flex-col md:-mb-0">
       <div className="flex w-full flex-1 flex-col justify-center bg-nd-secondary-950/70">
         <div className="container relative z-10 px-10 py-32">
           <div className="grid grid-cols-4">

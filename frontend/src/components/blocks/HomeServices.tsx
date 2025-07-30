@@ -62,7 +62,7 @@ function HomeServices() {
             </div>
           </div>
         </div>
-        <div className="relative w-full min-w-[1200px] scale-50 overflow-hidden transition-all md:scale-100">
+        <div className="relative -bottom-0.5 w-full min-w-[1200px] scale-50 overflow-hidden transition-all md:scale-100">
           <div className="absolute left-1/2 z-20 h-[600px] w-[600px] -translate-x-1/2">
             <div className="flex h-full w-full flex-1 items-center justify-center">
               <Arrow />
