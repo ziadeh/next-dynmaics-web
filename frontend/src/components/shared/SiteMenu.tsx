@@ -85,7 +85,7 @@ function SiteMenu({ menu }: { menu: Menu }) {
 
   return (
     <>
-      <NavigationMenu className="hidden lg:block">
+      <NavigationMenu delayDuration={0} className="hidden lg:block">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="bg-transparent text-white hover:bg-white/10 hover:text-white">

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { WritingText } from "../animate-ui/text/writing";
 
 const industries = [
   {
@@ -40,8 +41,13 @@ function HomeIndustries() {
   return (
     <div className="-mt-32 flex flex-row justify-center bg-[url(/bg-lines.svg)]">
       <div className="container pb-32 pt-44">
-        <h2 className="text-semibold mb-8 px-10 pb-24 text-2xl text-white lg:mb-20 lg:text-5xl">
-          Industries
+        <h2 className="text-semibold mb-8 px-10 pb-0 text-2xl text-white lg:mb-20 lg:text-5xl">
+          <WritingText
+            transition={{ type: "spring", bounce: 0, duration: 1, delay: 0.1 }}
+            inViewOnce={true}
+            inView={true}
+            text="Industries"
+          />
         </h2>
         <div>
           <Accordion type="single" collapsible className="w-full gap-10">

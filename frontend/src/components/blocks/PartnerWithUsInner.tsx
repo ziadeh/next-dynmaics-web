@@ -2,6 +2,7 @@ import React from "react";
 
 import classes from "../../styles/stars.module.css";
 import { Button } from "../ui/button";
+import { StarsBackground } from "../animate-ui/backgrounds/stars";
 
 function PartnerWithUsInner() {
   return (
@@ -39,6 +40,10 @@ function PartnerWithUsInner() {
             <div className={classes.stars2}></div>
           </div>
         </div>
+        <div className="absolute inset-0 bottom-0 top-0 mx-auto flex max-w-screen-md items-center justify-center rounded-xl opacity-60">
+          <div className="z-10 h-full w-full bg-gradient-to-t from-nd-secondary-950 via-nd-secondary-950/80 to-nd-secondary-950/0" />
+          <StarsBackground className="absolute inset-0 bottom-0 top-0 flex items-center justify-center rounded-xl" />
+        </div>
         <div className="gap-7.5 -z-1 relative flex justify-center">
           <div className="nd-custom-grid nd-custom-grid-border relative h-[250px] w-full max-w-[50px]"></div>
           <div className="nd-custom-grid nd-custom-grid-border relative h-[250px] w-full max-w-[50px]"></div>
@@ -50,28 +55,28 @@ function PartnerWithUsInner() {
           <div className="nd-custom-grid nd-custom-grid-border relative h-[250px] w-full max-w-[50px]"></div>
         </div>
         <div className="relative z-30 mx-auto -mt-24 mb-16 max-w-screen-sm text-center">
-          <h2 className="xl:text-heading-2 text-nd-primary-600 mb-6 text-2xl font-extrabold sm:text-4xl">
+          <h2 className="xl:text-heading-2 mb-6 text-2xl font-extrabold text-nd-primary-600 sm:text-4xl">
             Partner With Us
           </h2>
-          <p className="text-nd-secondary-200 mx-auto mt-4 max-w-[500px] text-sm">
+          <p className="mx-auto mt-4 max-w-[500px] text-sm text-nd-secondary-200">
             At Next Dynamics, we are committed to delivering innovative
             solutions that align with your business objectives.
           </p>
-          <p className="text-nd-secondary-300 container mt-6 text-sm">
+          <p className="container mt-6 text-sm text-nd-secondary-300">
             Our approach combines industry best practices with a deep
             understanding of your unique challenges, ensuring that we deliver
             value at every stage of your project.
           </p>
-          <p className="text-nd-secondary-400 container mt-6 text-sm">
+          <p className="container mt-6 text-sm text-nd-secondary-400">
             By leveraging our expertise in rapid prototyping and custom software
             development, we help you navigate the complexities of today’s
             digital landscape, turning your visionary ideas into actionable,
             impactful solutions.
           </p>
-          <Button className="border-nd-primary-600 bg-nd-secondary-950 hover:text-nd-secondary-950 mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-white/50 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
+          <Button className="mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-nd-secondary-950 px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-accent hover:text-nd-secondary-950 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-white/50 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
             Let’s Build Together
           </Button>
-          <p className="text-nd-secondary-200 mt-5 text-xs">
+          <p className="mt-5 text-xs text-nd-secondary-200">
             Contact us today to discover how our services can help you achieve
             your business goals.
           </p>

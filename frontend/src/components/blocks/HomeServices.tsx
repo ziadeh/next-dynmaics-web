@@ -3,6 +3,8 @@ import React from "react";
 import { Arrow } from "../shared";
 import { ServicesMenu } from "@/util/constants";
 import Link from "next/link";
+import { WritingText } from "../animate-ui/text/writing";
+import { MotionEffect } from "../animate-ui/effects/motion-effect";
 
 function HomeServices() {
   return (
@@ -10,18 +12,53 @@ function HomeServices() {
       <div className="relative z-10 -mt-16 flex h-screen flex-row justify-center overflow-hidden bg-[url(/bg-lines.svg)] lg:max-h-[1000px]">
         <div className="absolute bottom-0 left-0 z-20 flex h-full w-full flex-1 items-end pb-20">
           <div className="container px-10">
-            <h3 className="mb-5 text-base font-semibold uppercase text-nd-primary-600">
-              Services
-            </h3>
+            <MotionEffect
+              fade
+              delay={0.3}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+              }}
+              slide={{
+                direction: "down",
+                offset: 10,
+              }}
+              inView
+            >
+              <h3 className="mb-5 text-base font-semibold uppercase text-nd-primary-600">
+                Services
+              </h3>
+            </MotionEffect>
             <div className="max-w-[530px]">
               <h2 className="text-semibold text-2xl text-white lg:text-5xl">
-                Innovative Technologies, Measurable Success
+                <WritingText
+                  transition={{
+                    type: "spring",
+                    bounce: 0,
+                    duration: 1,
+                    delay: 0.1,
+                  }}
+                  inViewOnce={true}
+                  inView={true}
+                  text="Innovative Technologies, Measurable Success"
+                />
               </h2>
-              <p className="mt-4 text-sm text-white lg:text-base">
-                Discover our range of services designed to translate your vision
-                into impactful solutions through cutting-edge technology and
-                strategic expertise.
-              </p>
+
+              <MotionEffect
+                fade
+                delay={0.4}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                }}
+                inView
+              >
+                <p className="mt-4 text-sm text-white lg:text-base">
+                  Discover our range of services designed to translate your
+                  vision into impactful solutions through cutting-edge
+                  technology and strategic expertise.
+                </p>
+              </MotionEffect>
             </div>
           </div>
         </div>
@@ -46,17 +83,17 @@ function HomeServices() {
         </div>
       </div>
       <div className="container min-h-[400px] px-5">
-        <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-4 xl:gap-10">
+        <div className="grid grid-cols-1 gap-6 py-4 md:grid-cols-2 lg:grid-cols-4">
           {ServicesMenu.map((service, index) => (
-            <div className="p-5 hover:cursor-pointer" key={index}>
+            <div className="hover:cursor-pointer" key={index}>
               <Link href={service.link} legacyBehavior passHref>
                 <div className="xaspect-square group flex min-h-56 flex-col rounded-lg border border-nd-primary-600 p-3 text-white transition-all duration-1000 hover:scale-105 hover:border-nd-primary-600/50">
-                  <div className="h-0 w-full self-start overflow-hidden rounded-lg bg-white opacity-0 transition-all duration-300 ease-in-out group-hover:mb-5 group-hover:h-64 group-hover:opacity-100">
+                  <div className="mb-4 w-full self-start overflow-hidden rounded-lg bg-white transition-all duration-300 ease-in-out lg:h-0 lg:opacity-0 lg:group-hover:mb-5 lg:group-hover:h-64 lg:group-hover:opacity-100">
                     {service.img ? (
                       <Image
                         src={service.img}
                         alt=""
-                        className="h-full object-cover"
+                        className="h-full w-full object-cover"
                         width={400}
                         height={600}
                       />

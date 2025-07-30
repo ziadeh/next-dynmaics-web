@@ -7,6 +7,8 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
+    STRAPI_BACKEND_URL: z.string().url(),
+    STRAPI_API_TOKEN: z.string(),
     NODE_ENV: z.enum(["development", "test", "production"]),
   },
 
@@ -25,6 +27,8 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    STRAPI_BACKEND_URL: process.env.STRAPI_BACKEND_URL,
+    STRAPI_API_TOKEN: process.env.STRAPI_API_TOKEN,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

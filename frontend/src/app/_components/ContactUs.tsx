@@ -1,8 +1,36 @@
+"use client";
 import React from "react";
 import classes from "@/styles/stars.module.css";
 import { Button } from "@/components/ui/button";
+import { StarsBackground } from "@/components/animate-ui/backgrounds/stars";
+import { api } from "@/trpc/react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertTriangleIcon, CheckCircle2Icon } from "lucide-react";
 
 function ContactUs() {
+  const {
+    mutateAsync: contactMutation,
+    isPending,
+    isError,
+    isSuccess,
+  } = api.contact.submitForm.useMutation();
+  const formRef = React.useRef<HTMLFormElement>(null);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      await contactMutation(data);
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
+
   return (
     <div className="mx-auto max-w-[1104px] px-4 py-32 sm:px-8 xl:px-0">
       <div className="bg-dark pt-25 lg:px-27.5 relative z-10 overflow-hidden rounded-[30px] px-4 sm:px-20">
@@ -16,6 +44,7 @@ function ContactUs() {
           <div className="nd-custom-grid nd-custom-grid-border relative bottom-2 h-[250px] w-full max-w-[50px]"></div>
           <div className="nd-custom-grid nd-custom-grid-border relative bottom-5 h-[250px] w-full max-w-[50px]"></div>
           <div className="nd-custom-grid nd-custom-grid-border relative bottom-8 h-[250px] w-full max-w-[50px]"></div>
+          <StarsBackground factor={0} className="absolute z-40 opacity-100" />
         </div>
         <div className="absolute -top-32 left-1/2 -z-10 h-64 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
           <div className={classes.stars}></div>
@@ -44,7 +73,37 @@ function ContactUs() {
         </div>
         <div className="form-box-gradient bg-dark xl:p-15 relative mt-12 overflow-hidden rounded-[25px] p-6 sm:p-8">
           <div className="min-h-[600px]">
-            <form className="relative z-10 lg:p-10">
+            {isError && (
+              <Alert
+                variant="default"
+                className="mb-4 border-red-400 bg-red-300/30 text-white"
+              >
+                <AlertTriangleIcon stroke="#f87171" />
+                <AlertTitle className="">Submission Failed</AlertTitle>
+                <AlertDescription>
+                  Sorry, something went wrong while sending your message. Please
+                  try again later.
+                </AlertDescription>
+              </Alert>
+            )}
+            {isSuccess && (
+              <Alert
+                variant="default"
+                className="mb-4 border-green-400 bg-green-300/30 text-white"
+              >
+                <CheckCircle2Icon stroke="#4ade80" />
+                <AlertTitle className="">Message Sent!</AlertTitle>
+                <AlertDescription>
+                  Thank you for contacting us. We’ve received your message and
+                  will get back to you shortly.
+                </AlertDescription>
+              </Alert>
+            )}
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="relative z-10 lg:p-10"
+            >
               <div className="-mx-4 flex flex-wrap xl:-mx-10">
                 <div className="w-full px-4 md:w-1/2 xl:px-5">
                   <div className="mb-9.5">
@@ -59,7 +118,7 @@ function ContactUs() {
                       type="text"
                       name="name"
                       placeholder="Enter your Name"
-                      className="text-nd-primary-100 focus:border-nd-primary-900 w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 outline-none"
+                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-50 outline-none focus:border-nd-primary-900"
                     />
                   </div>
                 </div>
@@ -76,7 +135,7 @@ function ContactUs() {
                       type="email"
                       name="email"
                       placeholder="Enter your Email"
-                      className="text-nd-primary-100 focus:border-nd-primary-900 w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 outline-none"
+                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-50 outline-none focus:border-nd-primary-900"
                     />
                   </div>
                 </div>
@@ -93,14 +152,14 @@ function ContactUs() {
                       name="message"
                       placeholder="Type your message"
                       rows={6}
-                      className="text-nd-primary-100 focus:border-nd-primary-900 w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 outline-none"
+                      className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-50 outline-none focus:border-nd-primary-900"
                     ></textarea>
                   </div>
                 </div>
                 <div className="w-full px-4 xl:px-5">
                   <div className="text-center">
-                    <Button className="border-nd-primary-600 hover:bg-nd-primary-600 active:bg-nd-primary-700 mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
-                      Send Message
+                    <Button className="mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-nd-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-nd-primary-700 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
+                      {isPending ? "Sending..." : "Send Message"}
                     </Button>
                   </div>
                 </div>

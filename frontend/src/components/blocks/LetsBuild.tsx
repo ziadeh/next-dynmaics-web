@@ -1,6 +1,8 @@
 import classes from "@/styles/stars.module.css";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { StarsBackground } from "../animate-ui/backgrounds/stars";
+import { LiquidButton } from "@/components/animate-ui/buttons/liquid";
 
 interface LetsBuildProps {
   title: string;
@@ -33,22 +35,21 @@ const LetsBuild = ({
           <h2 className="mb-4.5 xl:text-heading-2 text-2xl font-semibold text-white sm:text-4xl">
             {title}
           </h2>
-          <p className="text-nd-primary-100 mx-auto mb-9 mt-5 max-w-[714px] text-sm">
+          <p className="mx-auto mb-9 mt-5 max-w-[714px] text-sm text-nd-primary-100">
             {content}
           </p>
-          <p className="text-nd-primary-100 mx-auto mt-4 max-w-[714px] text-xs">
+          <p className="mx-auto mt-4 max-w-[714px] text-xs text-nd-primary-100">
             {subContent}
           </p>
           <Button
             asChild
-            className="border-nd-primary-600 hover:bg-nd-primary-600 active:bg-nd-primary-700 mx-auto mt-8 inline-block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none"
+            className="mx-auto mt-8 inline-block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border-2 border-nd-primary-600 bg-transparent px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-nd-primary-600 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-nd-primary-700 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none"
           >
             <Link href="/contact-us">{buttonText}</Link>
           </Button>
         </div>
         <div className="-z-1 absolute -bottom-0 left-1/2 h-60 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
-          <div className={classes.stars}></div>
-          <div className={classes.stars2}></div>
+          <StarsBackground className="w-full opacity-50" />
         </div>
       </div>
     </div>

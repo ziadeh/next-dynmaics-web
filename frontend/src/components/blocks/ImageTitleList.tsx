@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { MotionHighlight } from "../animate-ui/effects/motion-highlight";
 
 type itemList = {
   title: string;
@@ -22,11 +23,16 @@ function ImageTitleList({ title, content, list }: ImageTitleListProps) {
           <p className="mt-4 text-center text-sm text-white lg:text-base">
             {content}
           </p>
+          <MotionHighlight>
+            <div>a</div>
+            <div></div>
+            <div></div>
+          </MotionHighlight>
           <div className="mt-20 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {list.map((item, index) => (
               <div
                 key={index}
-                className="bg-nd-secondary-800/50 hover:bg-nd-secondary-800/80 group flex flex-col flex-wrap items-center justify-between gap-2 rounded-lg p-12 text-white transition-all duration-300 lg:flex-row"
+                className="group flex flex-col flex-wrap items-center justify-between gap-2 rounded-lg bg-nd-secondary-800/50 p-12 text-white transition-all duration-300 hover:bg-nd-secondary-800/80 lg:flex-row"
               >
                 <div className="order-2 flex-1 text-xl font-light lg:order-1">
                   <p className="font-medium">{item.title}</p>
@@ -36,7 +42,7 @@ function ImageTitleList({ title, content, list }: ImageTitleListProps) {
                     </p>
                   )}
                 </div>
-                <div className="shadow-nd-secondary-700 order-1 mb-4 h-28 w-28 overflow-hidden rounded-lg opacity-80 shadow-lg transition-all group-hover:opacity-100 lg:order-2 lg:mb-0">
+                <div className="order-1 mb-4 h-28 w-28 overflow-hidden rounded-lg opacity-80 shadow-lg shadow-nd-secondary-700 transition-all group-hover:opacity-100 lg:order-2 lg:mb-0">
                   {item.image ? (
                     <Image
                       width={328}
