@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 BUCKET_PATH="s3://nd-space/_next/static/"
 echo -e "\033[0;34m🔄 Pulling latest changes from the repository...\033[0m"
-git pull || exit 1
+git pull
 echo -e "\033[0;34m📦 Installing dependencies...\033[0m"
 npm install
 echo -e "\033[0;34m🔨 Building the project...\033[0m"
