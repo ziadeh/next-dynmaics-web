@@ -23,11 +23,6 @@ function ImageTitleList({ title, content, list }: ImageTitleListProps) {
           <p className="mt-4 text-center text-sm text-white lg:text-base">
             {content}
           </p>
-          <MotionHighlight>
-            <div>a</div>
-            <div></div>
-            <div></div>
-          </MotionHighlight>
           <div className="mt-20 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {list.map((item, index) => (
               <div
