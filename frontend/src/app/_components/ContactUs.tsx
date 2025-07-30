@@ -14,18 +14,35 @@ function ContactUs() {
     isError,
     isSuccess,
   } = api.contact.submitForm.useMutation();
-  const formRef = React.useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formErrors, setFormErrors] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
+
+    const errors = {
+      name: formData.name ? "" : "Name is required",
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        ? ""
+        : "Invalid email address",
+      message: formData.message ? "" : "Message is required",
     };
 
+    setFormErrors(errors);
+    if (Object.values(errors).some(Boolean)) return;
+
     try {
-      await contactMutation(data);
+      await contactMutation(formData);
+      setFormData({ name: "", email: "", message: "" });
+      setFormErrors({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Error sending message:", error);
     }
@@ -99,11 +116,7 @@ function ContactUs() {
                 </AlertDescription>
               </Alert>
             )}
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="relative z-10 lg:p-10"
-            >
+            <form onSubmit={handleSubmit} className="relative z-10 lg:p-10">
               <div className="-mx-4 flex flex-wrap xl:-mx-10">
                 <div className="w-full px-4 md:w-1/2 xl:px-5">
                   <div className="mb-9.5">
@@ -119,7 +132,14 @@ function ContactUs() {
                       name="name"
                       placeholder="Enter your Name"
                       className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-50 outline-none focus:border-nd-primary-900"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                     />
+                    {formErrors.name && (
+                      <p className="text-red-500">{formErrors.name}</p>
+                    )}
                   </div>
                 </div>
                 <div className="w-full px-4 md:w-1/2 xl:px-5">
@@ -136,7 +156,14 @@ function ContactUs() {
                       name="email"
                       placeholder="Enter your Email"
                       className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-50 outline-none focus:border-nd-primary-900"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                     />
+                    {formErrors.email && (
+                      <p className="text-red-500">{formErrors.email}</p>
+                    )}
                   </div>
                 </div>
                 <div className="mt-6 w-full px-4 xl:px-5">
@@ -153,7 +180,14 @@ function ContactUs() {
                       placeholder="Type your message"
                       rows={6}
                       className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-nd-primary-50 outline-none focus:border-nd-primary-900"
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                     ></textarea>
+                    {formErrors.message && (
+                      <p className="text-red-500">{formErrors.message}</p>
+                    )}
                   </div>
                 </div>
                 <div className="w-full px-4 xl:px-5">
