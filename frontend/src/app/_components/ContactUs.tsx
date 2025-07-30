@@ -41,6 +41,9 @@ function ContactUs() {
 
     try {
       await contactMutation(formData);
+      if (typeof window !== "undefined" && window.innerWidth <= 768) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       setFormData({ name: "", email: "", message: "" });
       setFormErrors({ name: "", email: "", message: "" });
     } catch (error) {

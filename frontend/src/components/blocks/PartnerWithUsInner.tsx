@@ -3,6 +3,7 @@ import React from "react";
 import classes from "../../styles/stars.module.css";
 import { Button } from "../ui/button";
 import { StarsBackground } from "../animate-ui/backgrounds/stars";
+import Link from "next/link";
 
 function PartnerWithUsInner() {
   return (
@@ -73,9 +74,13 @@ function PartnerWithUsInner() {
             digital landscape, turning your visionary ideas into actionable,
             impactful solutions.
           </p>
-          <Button className="mx-auto mt-8 block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-nd-secondary-950 px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-accent hover:text-nd-secondary-950 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-white/50 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none">
-            Let’s Build Together
+          <Button
+            asChild
+            className="mx-auto mt-8 inline-block h-full items-center justify-center gap-2 whitespace-nowrap rounded-md border border-nd-primary-600 bg-nd-secondary-950 px-12 py-4 text-lg font-medium text-white shadow-sm transition-colors duration-300 hover:bg-accent hover:text-nd-secondary-950 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring active:bg-white/50 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none"
+          >
+            <Link href="/contact-us">Let’s Build Together</Link>
           </Button>
+
           <p className="mt-5 text-xs text-nd-secondary-200">
             Contact us today to discover how our services can help you achieve
             your business goals.
