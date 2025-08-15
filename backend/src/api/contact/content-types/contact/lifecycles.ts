@@ -10,8 +10,8 @@ export default {
         .plugin("email")
         .service("email")
         .send({
-          // to: process.env.ADMIN_CC_EMAIL,
-          to: process.env.SMTP_DEFAULT_REPLY_TO,
+          to: process.env.ADMIN_CC_EMAIL,
+          cc: process.env.SMTP_DEFAULT_REPLY_TO,
           from: process.env.SMTP_DEFAULT_FROM,
           subject: "New Contact Form Submission",
           html: `
