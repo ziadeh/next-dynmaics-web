@@ -13,20 +13,23 @@ export const contactRouter = createTRPCRouter({
     .input(contactSubmissionSchema)
     .mutation(async ({ input }) => {
       try {
-        const response = await fetch(`${env.STRAPI_BACKEND_URL}/api/contacts`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${env.STRAPI_API_TOKEN}`,
-          },
-          body: JSON.stringify({
-            data: {
-              fullname: input.name,
-              email: input.email,
-              message: input.message,
+        const response = await fetch(
+          `${env.STRAPI_BACKEND_URL}/api/contacts?status=draft`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${env.STRAPI_API_TOKEN}`,
             },
-          }),
-        });
+            body: JSON.stringify({
+              data: {
+                fullname: input.name,
+                email: input.email,
+                message: input.message,
+              },
+            }),
+          },
+        );
         if (!response.ok) {
           const error = await response.json();
           throw new Error(error.message || "Failed to submit contact form");
