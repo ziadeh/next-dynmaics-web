@@ -14,14 +14,64 @@ const poppins = Poppins({
   style: ["normal"],
 });
 
+import Script from "next/script";
+
 export const metadata: Metadata = {
-  title: "Next Dynamics",
+  title: "Crafting Innovative Digital Solutions | Next Dynamics Inc.",
   description:
-    "Your strategic partner in crafting innovative technologies that translate visions into measurable success.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+    "Next Dynamics Inc. crafts innovative digital solutions—strategy, design, and engineering—to help organizations launch, scale, and modernize mission-critical products.",
   openGraph: {
     images: ["/share-image.png"],
   },
+  metadataBase: new URL("https://nextdynamicsinc.com"),
+  alternates: { canonical: "/" },
+  icons: [
+    { rel: "icon", url: "/favicon-48.png", sizes: "48x48" },
+    { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
+  ],
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nextdynamicsinc.com/#website",
+      url: "https://nextdynamicsinc.com/",
+      name: "Next Dynamics Inc.",
+      alternateName: ["NEXT Dynamics", "Next Dynamics"],
+      publisher: { "@id": "https://nextdynamicsinc.com/#organization" },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nextdynamicsinc.com/#organization",
+      name: "Next Dynamics Inc.",
+      url: "https://nextdynamicsinc.com/",
+      slogan: "Crafting Innovative Digital Solutions",
+      logo: {
+        "@type": "ImageObject",
+        "@id": "https://nextdynamicsinc.com/#logo",
+        url: "https://nextdynamicsinc.com/static/logo-512.png",
+        contentUrl: "https://nextdynamicsinc.com/static/logo-512.png",
+        width: 512,
+        height: 512,
+      },
+      sameAs: ["https://www.linkedin.com/company/next-dynamics-inc."],
+      // contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: "support@nextdynamicsinc.com" }]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nextdynamicsinc.com/#webpage",
+      url: "https://nextdynamicsinc.com/",
+      name: "Crafting Innovative Digital Solutions | Next Dynamics Inc.",
+      headline: "Crafting Innovative Digital Solutions",
+      description:
+        "Next Dynamics Inc. crafts innovative digital solutions—strategy, design, and engineering—to help organizations launch, scale, and modernize mission-critical products.",
+      isPartOf: { "@id": "https://nextdynamicsinc.com/#website" },
+      about: { "@id": "https://nextdynamicsinc.com/#organization" },
+      primaryImageOfPage: { "@id": "https://nextdynamicsinc.com/#logo" },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -29,7 +79,15 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${poppins.variable}`}>
-      <body className="bg-nd-secondary-950 flex min-h-screen flex-col">
+      <head>
+        <Script
+          id="jsonld-website"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className="flex min-h-screen flex-col bg-nd-secondary-950">
         <TRPCReactProvider>
           <CookieBanner />
           <SiteHeader />
