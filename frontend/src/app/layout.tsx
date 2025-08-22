@@ -66,7 +66,7 @@ const jsonLd = {
       name: "Crafting Innovative Digital Solutions | Next Dynamics Inc.",
       headline: "Crafting Innovative Digital Solutions",
       description:
-        "Next Dynamics Inc. crafts innovative digital solutions—strategy, design, and engineering—to help organizations launch, scale, and modernize mission-critical products.",
+        "Next Dynamics Inc. crafts innovative digital solutions—your strategic partner in developing technologies that translate visions into measurable success.",
       isPartOf: { "@id": "https://nextdynamicsinc.com/#website" },
       about: { "@id": "https://nextdynamicsinc.com/#organization" },
       primaryImageOfPage: { "@id": "https://nextdynamicsinc.com/#logo" },
